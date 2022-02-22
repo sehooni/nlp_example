@@ -1,6 +1,6 @@
 # nlp_example
 ## 소개
-본 레지토리는 nlp 예제 및 논문 구현에 목적을 두고 있습니다. 
+본 repository는 nlp 예제 및 논문 구현에 목적을 두고 있습니다. 
 
 It has purposes to practice NLP example and to implement the thesis.
 
