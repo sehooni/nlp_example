@@ -29,9 +29,9 @@
 이를 BERT 모델에 입력하고 문장 수준의 벡터(`pooler_output`)를 뽑는다. 이 벡터엔 전제와 가설의 의미가 응축되어 있다. 
 여기에 작은 추가 모듈을 덧붙여 모델 전체의 출력이 **[전제에 대해 가설이 참일 확률, 전제에 대해 가설이 거질일 확률, 전제에 대해 가설이 중립일 확률]** 형태가 되도록 한다.
 
-![문장쌍 분류](https://user-images.githubusercontent.com/84653623/156359430-e0d35d51-d1b5-49d4-b0f6-37a5fadf7f6e.png)
+### 그림 1. 문장 쌍 분류
 
-그림 1. 문장 쌍 분류
+![문장쌍 분류](https://user-images.githubusercontent.com/84653623/156359430-e0d35d51-d1b5-49d4-b0f6-37a5fadf7f6e.png)
 
 ## 태스크 모듈
 
@@ -39,14 +39,14 @@
 그 다음 가중치 행렬을 곱해 `pooler_output`을 분류해야 할 범주 수만큼의 차원을 갖는 벡터로 변환한다 **(그림에서 net)**.
 만일 `pooler_output`벡터가 768차원이고 분류 대상 범주 수가 3개(참, 거짓, 중립)라면 가중치 행렬의 크기는 768 * 3이 된다.
 
-![문장 쌍 분류 태스크 모듈](https://user-images.githubusercontent.com/84653623/156359238-49dfef62-31d8-4e1a-bd1e-feb38caa74fd.png)
+### 그림 2. 문장 쌍 분류 태스크 모듈
 
-그림 2. 문장 쌍 분류 태스크 모듈
+![문장 쌍 분류 태스크 모듈](https://user-images.githubusercontent.com/84653623/156359238-49dfef62-31d8-4e1a-bd1e-feb38caa74fd.png)
 
 여기에 소프트맥스 함수를 취하면 모델의 최종 출력 **(그림에서 y)** 이 된다. 
 이렇게 만든 모델의 최종 출력과 정답 레이블을 비교해 모델 출력이 정답 레이블과 최대한 같아지도록 BERT 레이어를 포함한 모델 전체를 업데이트 한다.
 
-문장 쌍 분류 태스크 모듈은 문서 분류 태스크 모듈과 거의 유사한 모습이다.
+문장 쌍 분류 태스크 모듈은 [문서 분류 태스크 모듈](https://github.com/sehooni/nlp_example/blob/main/example/document_classification/document_classification.md)과 거의 유사한 모습이다.
 문서 분류 과제를 3개 범주(긍정, 부정, 중립)를 분류하는 태스크로 상정한다면 두 모듈 구조는 똑같다.
 다만 차이는 태스크 모듈의 입력(`pooler_output`)이 된다. 
 즉, **`pooler_output`** 에 문장 1개의 의미가 응축되어 있다면 **문서 분류**, 2개의 의미가 내포해 있다면 **문장 쌍 분류** 과제가 된다.
