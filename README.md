@@ -7,4 +7,5 @@ It has purposes to practice NLP example and to implement the thesis.
 ## 구성
 먼저 다양한 예제를 참고하여 우선적으로 제작 및 실습을 진행합니다. 이후 논문 구현을 진행할 예정입니다. 
 ### examples
-* document_classification
+* [document_classification](https://github.com/sehooni/nlp_example/tree/main/example/document_classification)
+* [pair_classification](https://github.com/sehooni/nlp_example/tree/main/example/pair_classification)
